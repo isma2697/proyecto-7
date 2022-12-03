@@ -99,12 +99,14 @@ input {
     width: 350px;
     margin-top: 2em;
     height: 2.5em;
-    border-color: #3498db;
+    background-color: rgb(0, 112, 240);
     border-radius: 0.5em;
     color: #fff;
     transition: all 150ms ease-in-out;
 }
 #btn:hover {
-    width:300px;
-    transition: 1s;
+    background-color: rgb(2, 62, 131);
+    cursor: pointer;
+    width:250px;
+    transition: 0.6s;
 }
