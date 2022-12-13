@@ -1,21 +1,21 @@
-// import { createPopper } from '@popperjs/core';
-
-
+import { createPopper } from '@popperjs/core';
 class formulario {
     constructor() {
-        this.xname = /^[A-Z][a-z]+$/;
-        this.xsurname = /^[A-Z][a-z]+(\s[A-Z][a-z]+){1,2}$/;
-        this.xidcard = /^[0-9]{8}[A-Z]$/;
-        this.xdate = /^([0-2][0-9]|3[0-1])\/(0[0-9]|1[0-2])\/(19|20)[0-9]{2}$/;
+        this.xname       = /^[A-Z][a-z]+$/;
+        this.xsurname    = /^[A-Z][a-z]+(\s[A-Z][a-z]+){1,2}$/;
+        this.xidcard     = /^[0-9]{8}[A-Z]$/;
+        this.xdate       = /^([0-2][0-9]|3[0-1])\/(0[0-9]|1[0-2])\/(19|20)[0-9]{2}$/;
         this.xpostalcode = /^[0-9]{5}$/;
-        this.xemail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-        this.xtelephone = /^[0-9]{9}$/;
-        this.xmobile = /^[0-9]{9}$/;
-        this.xiban = /^[A-Z]{2}[0-9]{22}$/;
+        this.xemail      = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+        this.xtelephone  = /^[0-9]{9}$/;
+        this.xmobile     = /^[0-9]{9}$/;
+        this.xiban       = /^[A-Z]{2}[0-9]{22}$/;
         this.xcreditcard = /^[0-9]{16}$/;
-        this.xpassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{12,}$/;
+        this.xpassword   = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{12,}$/;
         this.xrepeatpassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{12,}$/;
         this.inputs = document.querySelectorAll('input');
+        this.input  =document.querySelector('.input');
+        this.toolpit=document.querySelector('.tooltip');
         
 
         this.inputs.forEach((input) => {
@@ -63,13 +63,14 @@ class formulario {
 
     init()  {   
         this.validate();
+        this.createPopper(this.inputs, this.tooltip);
     }
 
-    // validate() {
-    //     document.querySelector('#btn').addEventListener('click', (e) => {
-    //         this.validatedata();
-    //     });
-    // }
+    createPopper(input, tooltip) {
+        createPopper(input, tooltip, {
+            placement: 'right',
+        });
+    }
 
     validate(field, regex){
         if(regex.test(field.value)){
@@ -82,17 +83,17 @@ class formulario {
         }
     }
 
-
-    //cuantos class tiene el input como parametro is-invalid
-   
-    
-   
-
-    
-
-    
-
     
 }
 const form = new formulario();
 form.init();
+
+const input = document.querySelector ( '#input' );
+const tooltip = document.querySelector ( '#tooltip' );
+
+createPopper ( input ,  tooltip ,  {
+    placement :  'right' ,
+});
+
+
+
