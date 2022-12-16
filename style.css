@@ -12,6 +12,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 h1 {
@@ -44,7 +45,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.form {
+.block {
   width: 100%;
   height: 100%;
   display: flex;
@@ -95,6 +96,7 @@ input {
 #btn {
   width: 350px;
   height: 2.5em;
+  margin-left: 7em;
   background-color: rgb(0, 112, 240);
   border-radius: 0.5em;
   color: #fff;
@@ -140,4 +142,20 @@ input.is-invalid + p {
   position: relative;
   left: 12%;
   font-size: 14px;
+}
+
+
+#btn2{
+  width:7em ;
+  height: 1.5em;
+  margin-left: 7em;
+  font-weight: bold;
+  background-color: rgb(124, 152, 245);
+  box-shadow: -0.1em 0.2em rgba(255, 255, 255, 0.952);
+  border-radius: 0.5em;
+  color: rgb(0, 0, 0);
+  transition: all 150ms ease-in-out;
+  position: absolute;
+  top: 1em;
+  left: 128em;
 }
